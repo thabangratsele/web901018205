@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #555;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IWB Services</h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="index.html">home</a></li>
+                <li><a href="about.html">about Us</a></li>
+                <li><a href="services.html">services</a></li>
+                <li><a href="software tools.html">Software tools</a></li>
+                <li><a href="products.html">products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="mpesa&ecocash.html"></a></li>
+                <li><a href="banks.html"></a></li>
+                <li><a href="pricelist.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="step1">
+            <h3>Select Payment Method</h3>
+            <form id="form1">
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Select...</option>
+                        <option value="standardbank">Standard Bank</option>
+                        <option value="fnb">FNB</option>
+                        <option value="postbank">Post Bank</option>
+                        <option value="netbank">Net Bank</option>
+                    </select>
+                </div>
+                <button type="button" onclick="validateForm('form1', 'step2')" disabled>Next</button>
+            </form>
+        </div>
+        <div id="step2" class="hidden">
+            <h3>Enter Account Number</h3>
+            <form id="form2">
+                <div class="form-group">
+                    <label for="accountNumber">Account Number</label>
+                    <input type="text" id="accountNumber" name="accountNumber" required>
+                </div>
+                <button type="button" onclick="validateForm('form2', 'step3')" disabled>Submit</button>
+            </form>
+        </div>
+        <div id="step3" class="hidden">
+            <h3>Enter PIN Code</h3>
+            <form id="form3">
+                <div class="form-group">
+                    <label for="pinCode">PIN Code</label>
+                    <input type="password" id="pinCode" name="pinCode" required>
+                </div>
+                <button type="button" onclick="validateForm('form3', 'step4')" disabled>Okay</button>
+            </form>
+        </div>
+        <div id="step4" class="hidden">
+            <h3>Enter Amount</h3>
+            <form id="form4">
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" name="amount" required>
+                </div>
+                <button type="button" onclick="validateForm('form4', 'step5')" disabled>Submit</button>
+            </form>
+        </div>
+        <div id="step5" class="hidden">
+            <h3>will get back to youin a second.</h3>
+            <h3><a href="contact.html" class="cta">Let's talk now</a></h3>
+            <h3><a href="index.html" class="cta">Let's talk later</a></h3>
+        </div>
+    </div>
+    <script>
+        function validateForm(formId, nextStepId) {
+            const form = document.getElementById(formId);
+            if (form.checkValidity()) {
+                nextStep(nextStepId);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function nextStep(step) {
+            const steps = ['step1', 'step2', 'step3', 'step4', 'step5'];
+            steps.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(step).classList.remove('hidden');
+        }
+
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('input', (event) => {
+                const form = event.target.form;
+                const button = form.querySelector('button[type="button"]');
+                if (form.checkValidity()) {
+                    button.disabled = false;
+                } else {
+                    button.disabled = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

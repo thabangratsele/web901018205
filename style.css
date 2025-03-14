@@ -1,0 +1,126 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(117, 117, 165);
+}
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+.top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.top-left img {
+    width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    padding: 10px; /* Optional: Add padding if needed */
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #333;
+    padding: 0;
+    margin: 0;
+}
+nav ul li {
+    padding: 14px 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    background-color: #111;
+}
+section {
+    padding: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 45%;
+}
+#contactForm label, #contactForm input, #contactForm textarea, #contactForm button {
+    margin-bottom: 15px;
+    width: 100%;
+}
+#contactForm input, #contactForm textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#contactForm button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#contactForm button:hover {
+    background-color: #45a049;
+}
+.contacticons {
+    max-width: 45%;
+}
+.contacticons .icons {
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    background-color: #373737;
+    color: rgba(255, 255, 255, 0.956);
+    text-align: center;
+    padding: -10px 0;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}
+
+/* Featured Services */
+.featured-services {
+    padding: 20px;
+}
+
+.featured-services h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Bright color for heading */
+}
+
+.featured-services ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.featured-services li {
+    text-align: center;
+    margin: 15px;
+}
+
+.featured-services img {
+    width: 80%;
+    height: 100%;
+    max-width: 230px;
+    border-radius: 10px;
+}
